@@ -18,6 +18,7 @@ public class ControleJoueur : MonoBehaviour
     private float lastFireTime = 0;
     private bool currentOrientation = true;
     private int ammoCount;
+    private int hp = 3;
 
 
     // Start is called before the first frame update
@@ -51,6 +52,13 @@ public class ControleJoueur : MonoBehaviour
         // Tir une torpille
         if (Input.GetButtonDown("Fire1")) {
             fire();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ennemis")) {
+            hp--;
         }
     }
 

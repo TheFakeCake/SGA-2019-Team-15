@@ -2242,7 +2242,7 @@ PrefabInstance:
     - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
@@ -2303,7 +2303,7 @@ Transform:
   m_Children:
   - {fileID: 130853116}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231519167
 GameObject:
@@ -2388,3 +2388,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1977086606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8749294565039058326, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_Name
+      value: Meduse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749294565039058317, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150098404913739840, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: medusevelocity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150098404913739840, guid: 1378205f534471946a9cf70c072c562d,
+        type: 3}
+      propertyPath: floatingMultiplicator
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1378205f534471946a9cf70c072c562d, type: 3}
