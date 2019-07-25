@@ -4918,3 +4918,8 @@ MonoBehaviour:
   forceMoteur: 30
   forceAcceleration: 20
   cooldownAcceleration: 0.5
+  cooldownTir: 1
+  positionCanon: {x: 0.6, y: -0.15, z: 0}
+  projectile: {fileID: 2907945360556787655, guid: b7393f5b7f79e3c6abd428d7892b7680,
+    type: 3}
+  munitionsInitiales: 3

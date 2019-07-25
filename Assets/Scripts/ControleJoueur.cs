@@ -7,17 +7,24 @@ public class ControleJoueur : MonoBehaviour
     public float forceMoteur = 30;
     public float forceAcceleration = 20;
     public float cooldownAcceleration = 1;
+    public float cooldownTir = 1;
+    public Vector3 positionCanon;
+    public GameObject projectile;
+    public int munitionsInitiales = 3;
 
     private Rigidbody2D rigidBody2D;
 
     private float lastDashTime = 0;
+    private float lastFireTime = 0;
     private bool currentOrientation = true;
+    private int ammoCount;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        ammoCount = munitionsInitiales;
     }
 
     // Update is called once per frame
@@ -40,6 +47,11 @@ public class ControleJoueur : MonoBehaviour
         else if (force.x < 0) {
             setOrientation(false);
         }
+
+        // Tir une torpille
+        if (Input.GetButtonDown("Fire1")) {
+            fire();
+        }
     }
 
     private bool canDash()
@@ -53,5 +65,26 @@ public class ControleJoueur : MonoBehaviour
             transform.Rotate(new Vector3(0, 180, 0));
             currentOrientation = orientation;
         }
+    }
+
+    private bool canFire()
+    {
+        return (Time.time >= lastFireTime + cooldownTir);
+    }
+
+    private void fire()
+    {
+        if (ammoCount > 0 && canFire()) {
+            Object.Instantiate(projectile, transform.position + positionCanon, new Quaternion(0, 0, 0, 0));
+            ammoCount--;
+            lastFireTime = Time.time;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Affiche une sphere à la position du canon
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position + positionCanon, 0.07f);
     }
 }
