@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2907945360556787672}
   m_Layer: 0
   m_Name: Torpille
-  m_TagString: Untagged
+  m_TagString: Torpille
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

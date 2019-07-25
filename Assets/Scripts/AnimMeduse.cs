@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AnimMeduse : MonoBehaviour
 {
-    private Rigidbody2D rigidBody2D;
     public float medusevelocity=5;
     private Vector2 direction;
     public float amplideplace;
@@ -16,7 +15,6 @@ public class AnimMeduse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();
         startingPosition = transform.position;
     }
 
@@ -32,6 +30,14 @@ public class AnimMeduse : MonoBehaviour
         Gizmos.color = Color.black;
         Gizmos.DrawSphere(transform.position - new Vector3(0, 1), 0.1f);
         Gizmos.DrawSphere(transform.position + new Vector3(0, 1 + floatingMultiplicator), 0.1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        // En cas de collision avec un torpille, désactive la méduse
+        if (collider.tag == "Torpille") {
+            this.gameObject.SetActive(false);
+        }
     }
 }
 
