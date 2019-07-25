@@ -10,12 +10,15 @@ public class ControleJoueur : MonoBehaviour
     public float cooldownTir = 1;
     public Vector3 positionCanon;
     public GameObject projectile;
+    public float forceProjectile = 500;
     public int munitionsInitiales = 3;
 
     private Rigidbody2D rigidBody2D;
+    private GameObject canon;
+    private Torpille torpille;
 
-    private float lastDashTime = 0;
-    private float lastFireTime = 0;
+    private float lastDashTime;
+    private float lastFireTime;
     private bool currentOrientation = true;
     private int ammoCount;
     private int hp = 3;
@@ -25,6 +28,10 @@ public class ControleJoueur : MonoBehaviour
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        canon = transform.Find("Canon").gameObject;
+        torpille = projectile.GetComponent<Torpille>();
+        lastDashTime = -cooldownAcceleration;
+        lastFireTime = -cooldownTir;
         ammoCount = munitionsInitiales;
     }
 
@@ -77,22 +84,17 @@ public class ControleJoueur : MonoBehaviour
 
     private bool canFire()
     {
-        return (Time.time >= lastFireTime + cooldownTir);
+        return (ammoCount > 0 && Time.time >= lastFireTime + cooldownTir);
     }
 
     private void fire()
     {
-        if (ammoCount > 0 && canFire()) {
-            Object.Instantiate(projectile, transform.position + positionCanon, new Quaternion(0, 0, 0, 0));
+        if (canFire()) {
+            GameObject newProjectile = Object.Instantiate(projectile, canon.transform.position, canon.transform.rotation);
+            Vector3 projectileDirection = currentOrientation ? new Vector3(1, 0, 0) : new Vector3(-1, 0, 0);
+            newProjectile.GetComponent<Rigidbody2D>().AddForce(projectileDirection * forceProjectile);
             ammoCount--;
             lastFireTime = Time.time;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Affiche une sphere à la position du canon
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position + positionCanon, 0.07f);
     }
 }
