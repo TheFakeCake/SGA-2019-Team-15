@@ -118,4 +118,9 @@ public class ControleJoueur : MonoBehaviour
         isInvulnerable = true;
         lastHitTime = Time.time;
     }
+
+    public int getHp()
+    {
+        return hp;
+    }
 }
