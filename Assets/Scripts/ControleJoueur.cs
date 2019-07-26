@@ -161,6 +161,10 @@ public class ControleJoueur : MonoBehaviour
         animatorInvulnerability.SetBool("invulnerability", true);
         isInvulnerable = true;
         lastHitTime = Time.time;
+
+        if (hp < 1) {
+            // TODO
+        }
     }
 
     public int getHp()
