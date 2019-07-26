@@ -31,4 +31,12 @@ public class AnimMine : MonoBehaviour
         Gizmos.DrawSphere(transform.position - new Vector3(0, 1), 0.1f);
         Gizmos.DrawSphere(transform.position + new Vector3(0, 1 + floatingMultiplicator), 0.1f);
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        // En cas de collision avec un torpille, désactive la méduse
+        if (collider.tag == "Torpille" || collider.tag == "Sous-marin") {
+            this.gameObject.SetActive(false);
+        }
+    }
 }
