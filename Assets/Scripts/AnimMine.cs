@@ -9,9 +9,15 @@ public class AnimMine : MonoBehaviour
     public AnimationCurve floattingCurve;
     private Vector2 startingPosition;
     public float floatingMultiplicator = 1;
-
+    public AudioClip explosionSound;
+    private AudioSource sourceExplosion;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        sourceExplosion = transform.parent.GetComponent<AudioSource>();
+        
+    }
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -34,9 +40,12 @@ public class AnimMine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
         // En cas de collision avec un torpille, désactive la méduse
         if (collider.tag == "Torpille" || collider.tag == "Sous-marin") {
+            
             this.gameObject.SetActive(false);
+            sourceExplosion.PlayOneShot(explosionSound, 10F);
         }
     }
 }
