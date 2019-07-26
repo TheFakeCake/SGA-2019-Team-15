@@ -12,16 +12,20 @@ public class ControleJoueur : MonoBehaviour
     public GameObject projectile;
     public float forceProjectile = 500;
     public int munitionsInitiales = 3;
+    public float tempsInvulnerabilite = 1.5f;
 
     private Rigidbody2D rigidBody2D;
     private GameObject canon;
     private Torpille torpille;
+    private Animator animatorInvulnerability;
 
     private float lastDashTime;
     private float lastFireTime;
+    private float lastHitTime;
     private bool currentOrientation = true;
     private int ammoCount;
     private int hp = 3;
+    private bool isInvulnerable = false;
 
 
     // Start is called before the first frame update
@@ -30,8 +34,10 @@ public class ControleJoueur : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         canon = transform.Find("Canon").gameObject;
         torpille = projectile.GetComponent<Torpille>();
+        animatorInvulnerability = transform.Find("Sprite").gameObject.GetComponent<Animator>();
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
+        lastHitTime = -tempsInvulnerabilite;
         ammoCount = munitionsInitiales;
     }
 
@@ -60,12 +66,19 @@ public class ControleJoueur : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) {
             fire();
         }
+
+        // Termine l'invulnérabilité si nécessaire
+        if (isInvulnerable && Time.time > lastHitTime + tempsInvulnerabilite)
+        {
+            isInvulnerable = false;
+            animatorInvulnerability.SetBool("invulnerability", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ennemis")) {
-            hp--;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ennemis") && ! isInvulnerable) {
+            loseHp();
         }
     }
 
@@ -96,5 +109,13 @@ public class ControleJoueur : MonoBehaviour
             ammoCount--;
             lastFireTime = Time.time;
         }
+    }
+
+    private void loseHp()
+    {
+        hp--;
+        animatorInvulnerability.SetBool("invulnerability", true);
+        isInvulnerable = true;
+        lastHitTime = Time.time;
     }
 }
