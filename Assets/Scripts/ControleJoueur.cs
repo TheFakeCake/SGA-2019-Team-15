@@ -82,6 +82,13 @@ public class ControleJoueur : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Decors solide") && ! isInvulnerable) {
+            loseHp();
+        }
+    }
+
     private bool canDash()
     {
         return (Time.time >= lastDashTime + cooldownAcceleration);
