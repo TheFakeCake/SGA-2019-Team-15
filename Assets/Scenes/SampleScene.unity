@@ -559,12 +559,12 @@ PrefabInstance:
     - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.35
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8614028
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
@@ -621,10 +621,40 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.4625
       objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099396, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cfafaa09b88a44b4ebf532a2948380de, type: 3}
     - target: {fileID: 6685582667821614658, guid: add045fa2f25909e4897b0b8555e50fc,
         type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247492588547309047, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247492588547309047, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247492588547309047, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247492588547309047, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247492588547309047, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: Priority
+      value: 95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add045fa2f25909e4897b0b8555e50fc, type: 3}

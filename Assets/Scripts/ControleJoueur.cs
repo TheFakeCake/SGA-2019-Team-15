@@ -16,6 +16,10 @@ public class ControleJoueur : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     private GameObject canon;
     private Torpille torpille;
+    public AudioClip shootSound;
+    private AudioSource source;
+    private float volLowRange = 0.5f;
+    private float volHighRange = 1.0f;
 
     private float lastDashTime;
     private float lastFireTime;
@@ -87,9 +91,14 @@ public class ControleJoueur : MonoBehaviour
         return (ammoCount > 0 && Time.time >= lastFireTime + cooldownTir);
     }
 
+    void Awake() {
+
+        source = GetComponent<AudioSource>();
+    }
     private void fire()
     {
         if (canFire()) {
+            source.PlayOneShot(shootSound, 1F);
             GameObject newProjectile = Object.Instantiate(projectile, canon.transform.position, canon.transform.rotation);
             Vector3 projectileDirection = currentOrientation ? new Vector3(1, 0, 0) : new Vector3(-1, 0, 0);
             newProjectile.GetComponent<Rigidbody2D>().AddForce(projectileDirection * forceProjectile);
