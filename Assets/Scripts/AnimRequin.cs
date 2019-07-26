@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AnimRequin : MonoBehaviour
 {
-
     private Rigidbody2D rigidBody2D;
     public float requinvelocity = 5;
     public AnimationCurve floattingCurve;
@@ -38,9 +37,6 @@ public class AnimRequin : MonoBehaviour
         lastPosition.x = transform.position.x;
     }
 
-
-
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
@@ -52,7 +48,6 @@ public class AnimRequin : MonoBehaviour
     {
         if (collider.tag == "Torpille")
         {
-
             this.gameObject.SetActive(false);
         }
     }
