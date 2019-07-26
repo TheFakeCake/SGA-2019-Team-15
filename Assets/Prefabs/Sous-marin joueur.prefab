@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347922642985468861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.86, y: 0.017, z: 0}
+  m_LocalPosition: {x: -0.99, y: -0.44, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 6685582667867099397}
@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -659,7 +659,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 8
     angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2.0499294
+      value: 2.3472118
       mode: 0
       spread: 0
       speed:
@@ -4965,8 +4965,8 @@ MonoBehaviour:
   forceProjectile: 500
   munitionsInitiales: 3
   marinSound: {fileID: 8300000, guid: 403f9cc079221a345991315588135ad0, type: 3}
-  shootSound: {fileID: 8300000, guid: cfafaa09b88a44b4ebf532a2948380de, type: 3}
   tempsInvulnerabilite: 1.8
+  shootSound: {fileID: 8300000, guid: cfafaa09b88a44b4ebf532a2948380de, type: 3}
 --- !u!95 &6869518465168938361
 Animator:
   serializedVersion: 3

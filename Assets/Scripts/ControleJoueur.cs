@@ -21,8 +21,9 @@ public class ControleJoueur : MonoBehaviour
     private Torpille torpille;
     public AudioClip shootSound;
     private AudioSource sourceShoot;
-   
     private Animator animatorInvulnerability;
+    private Animator animatorMovement;
+    private ParticleSystem bubbleEmitter;
 
     private float lastDashTime;
     private float lastFireTime;
@@ -40,35 +41,35 @@ public class ControleJoueur : MonoBehaviour
         canon = transform.Find("Canon").gameObject;
         torpille = projectile.GetComponent<Torpille>();
         animatorInvulnerability = transform.Find("Sprite").gameObject.GetComponent<Animator>();
+        animatorMovement = GetComponent<Animator>();
+        bubbleEmitter = transform.Find("Bubble emitter").gameObject.GetComponent<ParticleSystem>();
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
         lastHitTime = -tempsInvulnerabilite;
         ammoCount = munitionsInitiales;
 
-        
-        
         AudioSource[] srcs = GetComponents<AudioSource>();
         sourceMarin = srcs[0];
         sourceMarin.Play();
         sourceShoot = srcs[1];
-
-
     }
-
-    
 
     // Update is called once per frame
     void Update()
     {
-        
         // Applique la force de déplacement du sous-marin
         Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody2D.AddForce(force * forceMoteur);
 
-        // Applique la force d'accélération (dash)
-        if (Input.GetButtonDown("Dash") && canDash()) {
-            rigidBody2D.AddForce(force.normalized * forceAcceleration, ForceMode2D.Impulse);
-            lastDashTime = Time.time;
+        if (canDash()) {
+            if (Input.GetButtonDown("Dash")) {
+                // Dash
+                animatorMovement.SetBool("dash", true);
+                rigidBody2D.AddForce(force.normalized * forceAcceleration, ForceMode2D.Impulse);
+                lastDashTime = Time.time;
+            }
+        } else {
+            animatorMovement.SetBool("dash", false);
         }
 
         // Définit l'orientation horizontale du sous-marin
@@ -77,6 +78,19 @@ public class ControleJoueur : MonoBehaviour
         } 
         else if (force.x < 0) {
             setOrientation(false);
+        }
+
+        // Animation de mouvement et bulles
+        if (force.magnitude > 0) {
+            animatorMovement.SetBool("moving", true);
+            if (! bubbleEmitter.isEmitting) {
+                bubbleEmitter.Play();
+            }
+        } else {
+            animatorMovement.SetBool("moving", false);
+            if (bubbleEmitter.isEmitting) {
+                bubbleEmitter.Stop();
+            }
         }
 
         // Tir une torpille
@@ -124,10 +138,11 @@ public class ControleJoueur : MonoBehaviour
         return (ammoCount > 0 && Time.time >= lastFireTime + cooldownTir);
     }
 
-    void Awake() {
-
+    void Awake()
+    {
         sourceShoot = GetComponent<AudioSource>();
     }
+
     private void fire()
     {
         if (canFire()) {
