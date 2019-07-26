@@ -4849,7 +4849,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 379d6ef330e66dcd5920e701caab591f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4939,6 +4939,7 @@ MonoBehaviour:
   positionCanon: {x: 0.6, y: -0.5, z: 0}
   projectile: {fileID: 2907945360556787655, guid: b7393f5b7f79e3c6abd428d7892b7680,
     type: 3}
+  forceProjectile: 500
   munitionsInitiales: 3
 --- !u!95 &6869518465168938361
 Animator:
