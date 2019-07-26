@@ -11,7 +11,7 @@ public class ControleJoueur : MonoBehaviour
     public Vector3 positionCanon;
     public GameObject projectile;
     public float forceProjectile = 500;
-    public int munitionsInitiales = 3;
+    public int munitionsInitiales = 5;
     public AudioClip marinSound;
     private AudioSource sourceMarin;
     public float tempsInvulnerabilite = 1.5f;
@@ -166,5 +166,10 @@ public class ControleJoueur : MonoBehaviour
     public int getHp()
     {
         return hp;
+    }
+
+    public int getAmmo()
+    {
+        return ammoCount;
     }
 }
