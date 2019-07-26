@@ -12,14 +12,15 @@ public class ControleJoueur : MonoBehaviour
     public GameObject projectile;
     public float forceProjectile = 500;
     public int munitionsInitiales = 3;
+    public AudioClip marinSound;
+    private AudioSource sourceMarin;
 
     private Rigidbody2D rigidBody2D;
     private GameObject canon;
     private Torpille torpille;
     public AudioClip shootSound;
-    private AudioSource source;
-    private float volLowRange = 0.5f;
-    private float volHighRange = 1.0f;
+    private AudioSource sourceShoot;
+   
 
     private float lastDashTime;
     private float lastFireTime;
@@ -37,11 +38,23 @@ public class ControleJoueur : MonoBehaviour
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
         ammoCount = munitionsInitiales;
+
+        
+        
+        AudioSource[] srcs = GetComponents<AudioSource>();
+        sourceMarin = srcs[0];
+        sourceMarin.Play();
+        sourceShoot = srcs[1];
+
+
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         // Applique la force de déplacement du sous-marin
         Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody2D.AddForce(force * forceMoteur);
@@ -93,12 +106,12 @@ public class ControleJoueur : MonoBehaviour
 
     void Awake() {
 
-        source = GetComponent<AudioSource>();
+        sourceShoot = GetComponent<AudioSource>();
     }
     private void fire()
     {
         if (canFire()) {
-            source.PlayOneShot(shootSound, 1F);
+            sourceShoot.PlayOneShot(shootSound, 4F);
             GameObject newProjectile = Object.Instantiate(projectile, canon.transform.position, canon.transform.rotation);
             Vector3 projectileDirection = currentOrientation ? new Vector3(1, 0, 0) : new Vector3(-1, 0, 0);
             newProjectile.GetComponent<Rigidbody2D>().AddForce(projectileDirection * forceProjectile);
