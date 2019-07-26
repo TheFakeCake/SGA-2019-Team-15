@@ -26,25 +26,34 @@ public class AnimRequin : MonoBehaviour
         float floating = floattingCurve.Evaluate(Time.time * requinvelocity);
         transform.position = startingPosition + new Vector2(floating * floatingMultiplicator, 0);
 
-        
+
         if (transform.position.x < lastPosition.x)
         {//se tournera si va vers la droite et autre vers la gauche 
-            GetComponent<SpriteRenderer>().flipX = false;
+            transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>().flipX = false;
         } // so immer in negativ wie klammer
-        else 
+        else
         {// mettre le if devant car si arrive a position normal alors revient sens de avant pas dans autre
-            GetComponent<SpriteRenderer>().flipX = true;
+            transform.Find("Sprite").gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         lastPosition.x = transform.position.x;
     }
 
-    
 
-    
-    private void OnDrawGizmos() 
+
+
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawSphere(transform.position - new Vector3(1, 0), 0.1f);
         Gizmos.DrawSphere(transform.position + new Vector3(1 + floatingMultiplicator, 0), 0.1f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Torpille")
+        {
+
+            this.gameObject.SetActive(false);
+        }
     }
 }
