@@ -4792,6 +4792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6685582667821614659}
   - component: {fileID: 6685582667821614658}
+  - component: {fileID: 7126762310307049852}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -4861,6 +4862,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7126762310307049852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685582667821614656}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb0dc405f22ea1c2283e16fb954a2c7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6685582667867099392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4946,6 +4966,7 @@ MonoBehaviour:
   munitionsInitiales: 3
   marinSound: {fileID: 8300000, guid: 403f9cc079221a345991315588135ad0, type: 3}
   shootSound: {fileID: 8300000, guid: cfafaa09b88a44b4ebf532a2948380de, type: 3}
+  tempsInvulnerabilite: 1.8
 --- !u!95 &6869518465168938361
 Animator:
   serializedVersion: 3

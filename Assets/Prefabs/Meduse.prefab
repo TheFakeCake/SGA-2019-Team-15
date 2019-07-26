@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33de945b301b2d54abfb1c4d339ec8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  medusevelocity: 5
+  medusevelocity: 1
   amplideplace: 0
   floattingCurve:
     serializedVersion: 2
