@@ -26,6 +26,7 @@ public class ControleJoueur : MonoBehaviour
     private Animator animatorMovement;
     private ParticleSystem bubbleEmitter;
     private GameObject gameOverScreen;
+    private GameObject victoryScreen;
 
     private float lastDashTime;
     private float lastFireTime;
@@ -46,6 +47,7 @@ public class ControleJoueur : MonoBehaviour
         animatorMovement = GetComponent<Animator>();
         bubbleEmitter = transform.Find("Bubble emitter").gameObject.GetComponent<ParticleSystem>();
         gameOverScreen = GameObject.Find("GameOver Screen");
+        victoryScreen = GameObject.Find("Victory Screen");
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
         lastHitTime = -tempsInvulnerabilite;
@@ -113,6 +115,9 @@ public class ControleJoueur : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ennemis") && ! isInvulnerable) {
             loseHp();
+        }
+        else if(collision.gameObject.tag == "Sortie") {
+            showVictory();
         }
     }
 
@@ -187,9 +192,29 @@ public class ControleJoueur : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+        Vector3 cameraPos = GameObject.Find("Camera").transform.position;
+        
         gameOverScreen.SetActive(true);
+        gameOverScreen.transform.position = new Vector3(cameraPos.x, cameraPos.y, 0);
         gameOverScreen.GetComponent<SpriteRenderer>().enabled = true;
         gameOverScreen.GetComponent<Restart>().enabled = true;
         gameOverScreen.GetComponent<AudioSource>().Play();
+    }
+
+    private void showVictory()
+    {
+        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects()) {
+            if (obj.tag != "MainCamera") {
+                obj.SetActive(false);
+            }
+        }
+        Vector3 cameraPos = GameObject.Find("Camera").transform.position;
+
+        victoryScreen.SetActive(true);
+        victoryScreen.transform.position = new Vector3(cameraPos.x, cameraPos.y, 0);
+        victoryScreen.GetComponent<SpriteRenderer>().enabled = true;
+        victoryScreen.GetComponent<VictoryScreen>().enabled = true;
+        victoryScreen.GetComponent<Animator>().enabled = true;
+        victoryScreen.GetComponent<AudioSource>().Play();
     }
 }
