@@ -15,7 +15,7 @@ public class Restart : MonoBehaviour
     void Update()
     {
          if (Input.GetButtonDown("Fire1")) {
-            SceneManager.LoadScene("Scenes/Level_1");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

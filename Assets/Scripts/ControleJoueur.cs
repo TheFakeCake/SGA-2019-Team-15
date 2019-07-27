@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControleJoueur : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class ControleJoueur : MonoBehaviour
     private Animator animatorInvulnerability;
     private Animator animatorMovement;
     private ParticleSystem bubbleEmitter;
+    private GameObject gameOverScreen;
 
     private float lastDashTime;
     private float lastFireTime;
@@ -43,6 +45,7 @@ public class ControleJoueur : MonoBehaviour
         animatorInvulnerability = transform.Find("Sprite").gameObject.GetComponent<Animator>();
         animatorMovement = GetComponent<Animator>();
         bubbleEmitter = transform.Find("Bubble emitter").gameObject.GetComponent<ParticleSystem>();
+        gameOverScreen = GameObject.Find("GameOver Screen");
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
         lastHitTime = -tempsInvulnerabilite;
@@ -163,7 +166,7 @@ public class ControleJoueur : MonoBehaviour
         lastHitTime = Time.time;
 
         if (hp < 1) {
-            // TODO
+            showGameOver();
         }
     }
 
@@ -175,5 +178,18 @@ public class ControleJoueur : MonoBehaviour
     public int getAmmo()
     {
         return ammoCount;
+    }
+
+    private void showGameOver()
+    {
+        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects()) {
+            if (obj.tag != "MainCamera") {
+                obj.SetActive(false);
+            }
+        }
+        gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponent<SpriteRenderer>().enabled = true;
+        gameOverScreen.GetComponent<Restart>().enabled = true;
+        gameOverScreen.GetComponent<AudioSource>().Play();
     }
 }
