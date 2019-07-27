@@ -62,6 +62,11 @@ public class ControleJoueur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Quitte le jeu
+        if (Input.GetButtonDown("Cancel")) {
+            Application.Quit();
+        }
+        
         // Applique la force de déplacement du sous-marin
         Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody2D.AddForce(force * forceMoteur);

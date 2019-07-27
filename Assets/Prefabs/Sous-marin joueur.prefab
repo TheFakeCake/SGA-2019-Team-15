@@ -4955,7 +4955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99120b00664ce183694a2c7df3d74b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMoteur: 30
+  forceMoteur: 15
   forceAcceleration: 20
   cooldownAcceleration: 0.5
   cooldownTir: 1

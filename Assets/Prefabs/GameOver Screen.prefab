@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 930216161958233876}
   - component: {fileID: 930216161958233878}
   - component: {fileID: 2850568134182722478}
+  - component: {fileID: 8147851375132364145}
   m_Layer: 0
   m_Name: GameOver Screen
   m_TagString: Untagged
@@ -189,3 +190,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8147851375132364145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930216161958233867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1fa2c16b5f4de4359eebbee8245eef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
