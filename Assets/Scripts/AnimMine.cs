@@ -40,12 +40,15 @@ public class AnimMine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-
         // En cas de collision avec un torpille, désactive la méduse
-        if (collider.tag == "Torpille" || collider.tag == "Sous-marin") {
-            
-            this.gameObject.SetActive(false);
-            sourceExplosion.PlayOneShot(explosionSound, 10F);
+        if (collider.tag == "Torpille") {           
+            explode();
         }
+    }
+
+    public void explode()
+    {
+        this.gameObject.SetActive(false);
+        sourceExplosion.PlayOneShot(explosionSound, 10F);
     }
 }

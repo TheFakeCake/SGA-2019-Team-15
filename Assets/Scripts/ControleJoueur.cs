@@ -111,10 +111,14 @@ public class ControleJoueur : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ennemis") && ! isInvulnerable) {
             loseHp();
+            AnimMine mine = collision.gameObject.GetComponent<AnimMine>();
+            if (mine) {
+                mine.explode();
+            }
         }
         else if(collision.gameObject.tag == "Sortie") {
             showVictory();
@@ -216,5 +220,10 @@ public class ControleJoueur : MonoBehaviour
         victoryScreen.GetComponent<VictoryScreen>().enabled = true;
         victoryScreen.GetComponent<Animator>().enabled = true;
         victoryScreen.GetComponent<AudioSource>().Play();
+    }
+
+    public bool getInvulnerability()
+    {
+        return isInvulnerable;
     }
 }
