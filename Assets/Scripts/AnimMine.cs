@@ -50,5 +50,6 @@ public class AnimMine : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         sourceExplosion.PlayOneShot(explosionSound, 10F);
+        transform.parent.Find("Explosion").gameObject.GetComponent<ParticleSystem>().Play();
     }
 }
