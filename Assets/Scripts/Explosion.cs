@@ -5,13 +5,12 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     private Vector2 startingPosition;
-    public ParticleSystem particleSystem;
+    public ParticleSystem particles;
 
     // Start is called before the first frame update
     void Start()
     {
-        startingPosition = transform.position;
-        particleSystem.Stop();
+        particles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -21,15 +20,15 @@ public class Explosion : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
+        /*
         Debug.Log("Sous-marin");
 
-        if (coll.gameObject.tag == "Sous-marin")
+        if (coll.gameObject.tag == "Sous-marin" || coll.gameObject.tag == "Torpille")
         {
-            particleSystem.Play();
-            
+            particles.Play();
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject);*/
     }
 
 }
