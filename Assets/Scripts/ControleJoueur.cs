@@ -59,6 +59,13 @@ public class ControleJoueur : MonoBehaviour
         sourceShoot = srcs[1];
     }
 
+    void FixedUpdate()
+    {
+        // Applique la force de déplacement du sous-marin
+        Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rigidBody2D.AddForce(force * forceMoteur);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -67,9 +74,7 @@ public class ControleJoueur : MonoBehaviour
             Application.Quit();
         }
         
-        // Applique la force de déplacement du sous-marin
         Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rigidBody2D.AddForce(force * forceMoteur);
 
         if (canDash()) {
             if (Input.GetButtonDown("Dash")) {
