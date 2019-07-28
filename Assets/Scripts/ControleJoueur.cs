@@ -152,7 +152,9 @@ public class ControleJoueur : MonoBehaviour
 
     private bool canFire()
     {
-        return (ammoCount > 0 && Time.time >= lastFireTime + cooldownTir);
+        // Si les munitionsInitiales sont négatives => munitions infinies
+        return (munitionsInitiales < 0 || 
+               (ammoCount > 0 && Time.time >= lastFireTime + cooldownTir));
     }
 
     void Awake()
