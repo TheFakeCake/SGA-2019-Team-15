@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Torpille : MonoBehaviour
 {
-    public AudioClip explosionSound;
-    private AudioSource sourceExplosion;
+    private AudioSource explosionSound;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        explosionSound = transform.Find("Explosion sound").gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,22 +25,20 @@ public class Torpille : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-
-        sourceExplosion = GetComponent<AudioSource>();
-    }
-
     private void explode()
     {
         GameObject bubbles = transform.Find("Bulles").gameObject;
         ParticleSystem bubbleEmitter = bubbles.GetComponent<ParticleSystem>();
 
         bubbles.transform.parent = null;
+        bubbles.transform.localScale = transform.localScale;
         bubbleEmitter.Stop();
-        sourceExplosion.PlayOneShot(explosionSound, 1F);
+
+        explosionSound.transform.parent = null;
+        explosionSound.Play();
 
         Destroy(bubbles, bubbleEmitter.main.duration);
+        Destroy(explosionSound, explosionSound.clip.length);
         Destroy(this.gameObject);
     }
 }
