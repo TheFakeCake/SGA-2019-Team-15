@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class ExitGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string inputAxe = "Cancel";
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel")) {
+        if (Input.GetButtonDown(inputAxe)) {
             Application.Quit();
         }
     }

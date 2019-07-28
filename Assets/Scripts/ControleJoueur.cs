@@ -25,7 +25,6 @@ public class ControleJoueur : MonoBehaviour
     private Animator animatorInvulnerability;
     private Animator animatorMovement;
     private ParticleSystem bubbleEmitter;
-    private GameObject gameOverScreen;
     private GameObject victoryScreen;
 
     private float lastDashTime;
@@ -46,7 +45,6 @@ public class ControleJoueur : MonoBehaviour
         animatorInvulnerability = transform.Find("Sprite").gameObject.GetComponent<Animator>();
         animatorMovement = GetComponent<Animator>();
         bubbleEmitter = transform.Find("Bubble emitter").gameObject.GetComponent<ParticleSystem>();
-        gameOverScreen = GameObject.Find("GameOver Screen");
         victoryScreen = GameObject.Find("Victory Screen");
         lastDashTime = -cooldownAcceleration;
         lastFireTime = -cooldownTir;
@@ -69,11 +67,6 @@ public class ControleJoueur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Quitte le jeu
-        if (Input.GetButtonDown("Cancel")) {
-            Application.Quit();
-        }
-        
         Vector2 force = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         if (canDash()) {
@@ -186,7 +179,7 @@ public class ControleJoueur : MonoBehaviour
         lastHitTime = Time.time;
 
         if (hp < 1) {
-            showGameOver();
+            SceneManager.LoadScene("Game_Over");
         }
     }
 
@@ -198,22 +191,6 @@ public class ControleJoueur : MonoBehaviour
     public int getAmmo()
     {
         return ammoCount;
-    }
-
-    private void showGameOver()
-    {
-        foreach (GameObject obj in SceneManager.GetActiveScene().GetRootGameObjects()) {
-            if (obj.tag != "MainCamera") {
-                obj.SetActive(false);
-            }
-        }
-        Vector3 cameraPos = GameObject.Find("Camera").transform.position;
-        
-        gameOverScreen.SetActive(true);
-        gameOverScreen.transform.position = new Vector3(cameraPos.x, cameraPos.y, 0);
-        gameOverScreen.GetComponent<SpriteRenderer>().enabled = true;
-        gameOverScreen.GetComponent<Restart>().enabled = true;
-        gameOverScreen.GetComponent<AudioSource>().Play();
     }
 
     private void showVictory()
