@@ -160,7 +160,7 @@ public class ControleJoueur : MonoBehaviour
     private void fire()
     {
         if (canFire()) {
-            sourceShoot.PlayOneShot(shootSound, 4F);
+            sourceShoot.PlayOneShot(shootSound, 2);
             GameObject newProjectile = Object.Instantiate(projectile, canon.transform.position, canon.transform.rotation);
             Vector3 projectileDirection = currentOrientation ? new Vector3(1, 0, 0) : new Vector3(-1, 0, 0);
             newProjectile.GetComponent<Rigidbody2D>().AddForce(projectileDirection * forceProjectile);
