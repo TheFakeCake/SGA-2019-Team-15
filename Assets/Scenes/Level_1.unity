@@ -10734,7 +10734,7 @@ PrefabInstance:
     - target: {fileID: 923790239309088224, guid: cc9908508e15e32439f229b5f883892b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 923790239309088224, guid: cc9908508e15e32439f229b5f883892b,
         type: 3}
@@ -12862,7 +12862,7 @@ PrefabInstance:
     - target: {fileID: 930216161958233877, guid: 675e2fdcbb05716a3995f99b7fc0c9d4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 930216161958233877, guid: 675e2fdcbb05716a3995f99b7fc0c9d4,
         type: 3}
@@ -16071,105 +16071,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 236
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.479}
---- !u!1001 &1455887495
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6685582667867099392, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_Name
-      value: Sous-marin joueur
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667867099396, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: munitionsInitiales
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: _audioSource1
-      value: 
-      objectReference: {fileID: 1743834550}
-    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: _audioSource2
-      value: 
-      objectReference: {fileID: 1749373955}
-    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: additionerVol
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667821614659, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685582667821614659, guid: add045fa2f25909e4897b0b8555e50fc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.21
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: add045fa2f25909e4897b0b8555e50fc, type: 3}
 --- !u!1 &1464711952
 GameObject:
   m_ObjectHideFlags: 0
@@ -22054,6 +21955,95 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 156
   m_LocalEulerAnglesHint: {x: 1.9150001, y: -180.34299, z: 0.43}
+--- !u!1001 &2089108707
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6685582667867099392, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Sous-marin joueur
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.426527
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.008930445
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099397, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685582667867099396, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: munitionsInitiales
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: additionerVol
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: _audioSource1
+      value: 
+      objectReference: {fileID: 1743834550}
+    - target: {fileID: 3309408646392362471, guid: add045fa2f25909e4897b0b8555e50fc,
+        type: 3}
+      propertyPath: _audioSource2
+      value: 
+      objectReference: {fileID: 1749373955}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: add045fa2f25909e4897b0b8555e50fc, type: 3}
 --- !u!1001 &2097037062
 PrefabInstance:
   m_ObjectHideFlags: 0
