@@ -16,7 +16,6 @@ public class AnimMine : MonoBehaviour
     private void Awake()
     {
         sourceExplosion = transform.parent.GetComponent<AudioSource>();
-        
     }
     void Start()
     {
@@ -40,7 +39,7 @@ public class AnimMine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        // En cas de collision avec un torpille, désactive la méduse
+        // En cas de collision avec un torpille, la mine explose
         if (collider.tag == "Torpille") {           
             explode();
         }
@@ -49,7 +48,7 @@ public class AnimMine : MonoBehaviour
     public void explode()
     {
         this.gameObject.SetActive(false);
-        sourceExplosion.PlayOneShot(explosionSound, 10F);
+        sourceExplosion.PlayOneShot(explosionSound, 1F);
         transform.parent.Find("Explosion").gameObject.GetComponent<ParticleSystem>().Play();
     }
 }
