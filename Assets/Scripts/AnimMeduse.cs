@@ -36,8 +36,17 @@ public class AnimMeduse : MonoBehaviour
     {
         // En cas de collision avec un torpille, désactive la méduse
         if (collider.tag == "Torpille") {
-            this.gameObject.SetActive(false);
+            death();
         }
     }
-}
 
+    private void death()
+    {
+        GetComponent<Animator>().SetBool("isDead", true);
+    }
+
+    private void destroy()
+    {
+        Destroy(this.gameObject);
+    }
+}
