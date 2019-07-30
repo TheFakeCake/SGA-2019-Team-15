@@ -48,7 +48,17 @@ public class AnimRequin : MonoBehaviour
     {
         if (collider.tag == "Torpille")
         {
-            this.gameObject.SetActive(false);
+            death();
         }
+    }
+
+    private void death()
+    {
+        GetComponent<Animator>().SetBool("isDead", true);
+    }
+
+    private void destroy()
+    {
+        Destroy(this.gameObject);
     }
 }
