@@ -22,14 +22,17 @@ public class GUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vis1 = transform.Find("Vis 1").gameObject.GetComponent<Image>();
-        vis2 = transform.Find("Vis 2").gameObject.GetComponent<Image>();
-        vis3 = transform.Find("Vis 3").gameObject.GetComponent<Image>();
-        torpille1 = transform.Find("Torpille 1").gameObject.GetComponent<Image>();
-        torpille2 = transform.Find("Torpille 2").gameObject.GetComponent<Image>();
-        torpille3 = transform.Find("Torpille 3").gameObject.GetComponent<Image>();
-        torpille4 = transform.Find("Torpille 4").gameObject.GetComponent<Image>();
-        torpille5 = transform.Find("Torpille 5").gameObject.GetComponent<Image>();
+        GameObject panelVis = transform.Find("Panel vis").gameObject;
+        GameObject panelTorpilles = transform.Find("Panel torpilles").gameObject;
+
+        vis1 = panelVis.transform.Find("Vis 1").gameObject.GetComponent<Image>();
+        vis2 = panelVis.transform.Find("Vis 2").gameObject.GetComponent<Image>();
+        vis3 = panelVis.transform.Find("Vis 3").gameObject.GetComponent<Image>();
+        torpille1 = panelTorpilles.transform.Find("Torpille 1").gameObject.GetComponent<Image>();
+        torpille2 = panelTorpilles.transform.Find("Torpille 2").gameObject.GetComponent<Image>();
+        torpille3 = panelTorpilles.transform.Find("Torpille 3").gameObject.GetComponent<Image>();
+        torpille4 = panelTorpilles.transform.Find("Torpille 4").gameObject.GetComponent<Image>();
+        torpille5 = panelTorpilles.transform.Find("Torpille 5").gameObject.GetComponent<Image>();
         subMarine = GameObject.Find("Sous-marin joueur").GetComponent<ControleJoueur>();
         uiHp = subMarine.getHp();
         uiAmmo = subMarine.getAmmo();
